@@ -17,7 +17,10 @@ def run():
     user_input=screen.textinput(title=f"{len(correct_guess)}/18 Guessed the locations",prompt="Enter the place").title()
     if not user_input:
         return user_input
+
     if user_input=="Exit":
+        missed_location=[place for place in all_places if place not in correct_guess ]
+        print(f"you missed{missed_location}")
         return "Exit"
 
     if user_input in all_places and user_input not in correct_guess:
